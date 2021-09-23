@@ -37,20 +37,15 @@ if secret.username == username and secret.password == password :
 	print('server time is', time.asctime(time.localtime()))
 	print('</body></html>')
 
-
 	cookie_string = os.environ.get('HTTP_COOKIE')
 
-	if not cookie_string:
-		print('<p>First visit or cookies disabled</p>')
-
-	else:
-		cookie.load(cookie_string)
-		lastvisit = float(cookie['lastvisit'].value)
-		print('<p>Your last visit was at')
-		print(time.asctime(time.localtime(lastvisit)), '</p>')
+	cookie.load(cookie_string)
+	lastvisit = float(cookie['lastvisit'].value)
+	print('<p>Your last visit was at')
+	print(time.asctime(time.localtime(lastvisit)), '</p>')
 	print('</body></html>')
 
-	print(secret_page(username, password))
+	print(secret_page(cookie['UserID'].value, cookie['Password'].value))
 
 
 
