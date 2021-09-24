@@ -13,7 +13,6 @@ password = form.getvalue("password")
 
 print(login_page())
 
-print("Content-Type: text/html\r\n\r\n")
 print("<html>")
 print("<head>")
 print("<title>Hello - Second CGI Program</title>")
@@ -33,8 +32,9 @@ if secret.username == username and secret.password == password :
 	cookie['Password'] = password
 	print(cookie)
 	print('<html><body>')
-	print('<p>Content-Type: text/html\n</p>')
+	print('<p>')
 	print('server time is', time.asctime(time.localtime()))
+	print('</p>')
 	print('</body></html>')
 
 	cookie_string = os.environ.get('HTTP_COOKIE')
